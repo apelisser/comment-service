@@ -49,7 +49,7 @@ public class CommentController {
     @ResponseStatus(HttpStatus.CREATED)
     public CommentOutput add(@RequestBody CommentInput commentInput) {
         Comment comment = commentMapper.toEntity(commentInput);
-        Comment publishedComment = commentService.publish(comment);
+        Comment publishedComment = commentService.moderateAndPublish(comment);
         return commentMapper.toModel(publishedComment);
     }
 

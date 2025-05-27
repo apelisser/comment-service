@@ -22,7 +22,7 @@ public class CommentService {
         this.moderationService = moderationService;
     }
 
-    public Comment publish(Comment comment) {
+    public Comment moderateAndPublish(Comment comment) {
         this.applyCommentModeration(comment);
         return commentRepository.save(comment);
     }
